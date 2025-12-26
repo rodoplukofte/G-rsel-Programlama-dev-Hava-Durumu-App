@@ -3,6 +3,8 @@ import 'services/weather_service.dart';
 import 'models/weather_model.dart';
 import 'screens/forecast_screen.dart';
 import 'services/city_storage_service.dart';
+import 'screens/outfit_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -150,6 +152,35 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                             horizontal: 30, vertical: 15),
+                      ),
+                    ),
+                  ),
+                if (_currentWeather != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15.0), // Üstteki butonla mesafe
+                    child: ElevatedButton.icon(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OutfitScreen(
+                              cityName: _currentWeather!.sehirAdi,
+                              temperature: _currentWeather!.havaSicakligi,
+                              weatherCode: _currentWeather!.ikonBilgisi,
+                            ),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.checkroom), // Elbise askısı ikonu
+                      label: const Text('Ne Giymeliyim?'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orangeAccent, // Dikkat çekici renk
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                       ),
                     ),
                   ),
