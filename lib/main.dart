@@ -95,7 +95,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hava Durumu Uygulaması'),
+        title: const Text('DynamicSky'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       // Sol taraftan açılan yan menü (Drawer)
@@ -157,7 +157,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                 if (_currentWeather != null)
                   Padding(
-                    padding: const EdgeInsets.only(top: 15.0), // Üstteki butonla mesafe
+                    padding: const EdgeInsets.only(top: 15.0),
                     child: ElevatedButton.icon(
                       onPressed: () {
                         Navigator.push(

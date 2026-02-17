@@ -12,8 +12,6 @@ class OutfitScreen extends StatelessWidget {
     required this.cityName,
   });
 
-  // 🎨 RENK PALETİ MANTIĞI BURADA
-  // Hava durumu koduna göre arka plan renk listesi (Gradient) döndürür
   List<Color> _getBackgroundGradient(String code) {
     // 1. GÜNEŞLİ / AÇIK (Day & Night)
     if (code == '01d') {
@@ -63,7 +61,7 @@ class OutfitScreen extends StatelessWidget {
     final gradientColors = _getBackgroundGradient(weatherCode);
 
     return Scaffold(
-      extendBodyBehindAppBar: true, // AppBar'ın arkasına da renk gitmesi için
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: const Text('Ne Giymeliyim?'),
         backgroundColor: Colors.transparent, // Şeffaf AppBar
@@ -72,7 +70,6 @@ class OutfitScreen extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          // 🌈 DİNAMİK GRADYAN BURADA UYGULANIYOR
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -120,10 +117,10 @@ class OutfitScreen extends StatelessWidget {
                 label: const Text("Geri Dön"),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  backgroundColor: Colors.white.withOpacity(0.2), // Yarı saydam buton
+                  backgroundColor: Colors.white.withOpacity(0.2),
                   foregroundColor: Colors.white,
                   elevation: 0,
-                  side: const BorderSide(color: Colors.white70, width: 1), // İnce beyaz çerçeve
+                  side: const BorderSide(color: Colors.white70, width: 1),
                 ),
               )
             ],
@@ -152,7 +149,7 @@ class _OutfitRecommendationWidget extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.90), // Kartın içi her zaman beyaz kalsın ki okunsun
+        color: Colors.white.withOpacity(0.90),
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
